@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button/Button'
+import Loader from '@/components/ui/Loader/Loader'
 import { useActions } from '@/hooks/useActions'
 import { useCart } from '@/hooks/useCart'
 import { ICatalogItem } from '@/shared/types/cart'
@@ -12,7 +13,6 @@ const CatalogItem: FC<{ item: ICatalogItem }> = ({ item }) => {
 	const navigate = useNavigate()
 
 	function handlNavigation() {
-		// Переход на страницу корзины при клике на кнопку
 		navigate('/cart')
 	}
 
@@ -21,18 +21,18 @@ const CatalogItem: FC<{ item: ICatalogItem }> = ({ item }) => {
 	const handleAddToCart = (item: ICatalogItem) => {
 		addToCart({ item: item })
 	}
-	const handleRemoveToCart = (item: ICatalogItem) => {
-		removeToCart({ item: item })
-	}
+
 	return (
 		<section className={styles.item}>
 			<h4 className={styles.item__name}>
 				<Link to='#'>{item.name}</Link>
 			</h4>
-			{item.image && (
+			{item.image ? (
 				<Link to='#' className={styles.item__image}>
 					<img src={item.image} alt={item.name} />
 				</Link>
+			) : (
+				<Loader />
 			)}
 			<div className={styles.item__price}>Цена: {item.price}</div>
 			<Button

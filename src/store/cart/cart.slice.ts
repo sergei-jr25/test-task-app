@@ -1,5 +1,4 @@
 import { ICatalogItem } from '@/shared/types/cart'
-import { calculateTotalPrice } from '@/utils/calculate-totalPrice'
 import { getLocalStorage } from '@/utils/local-storage'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { initState } from './cart.interface'
@@ -30,7 +29,10 @@ const cart = createSlice({
 		},
 
 		calculateTotalPrice: state => {
-			state.totalPrice = calculateTotalPrice(state.items)
+			state.totalPrice = state.items.reduce((acc, item) => {
+				acc += item.price
+				return acc
+			}, 0)
 		},
 	},
 })

@@ -18,10 +18,10 @@ const Catalog: FC = () => {
 			<h1 className={`title ${styles.catalog__title}`}>Catalog</h1>
 			<div className={styles.catalog__items}>
 				{isLoading
-					? Array.from({ length: 6 }).map((el, idx) => (
+					? Array.from({ length: 6 }).map((_, idx) => (
 							<Loader key={idx} style={{ height: 400 }} />
 					  ))
-					: products?.map(item => <CatalogItem item={item} key={item.id} />)}
+					: products.map(item => <CatalogItem item={item} key={item.id} />)}
 			</div>
 		</section>
 	)
