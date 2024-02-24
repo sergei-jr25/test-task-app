@@ -1,0 +1,22 @@
+.cart {
+	border-radius: 15px;
+
+	&__title {
+	}
+	&__items {
+		display: grid;
+		gap: 30px;
+		margin: 0px 0px 40px 0px;
+	}
+
+	&__empty {
+		color: #fbfafc;
+		text-align: center;
+		font-weight: 600;
+		font-size: 20px;
+	}
+
+	&__totalprice {
+		color: #fbfafc;
+	}
+}
