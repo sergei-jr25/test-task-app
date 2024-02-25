@@ -21,7 +21,8 @@ const Catalog: FC = () => {
 					? Array.from({ length: 6 }).map((_, idx) => (
 							<Loader key={idx} style={{ height: 400 }} />
 					  ))
-					: products.map(item => <CatalogItem item={item} key={item.id} />)}
+					: products.length &&
+					  products.map(item => <CatalogItem item={item} key={item.id} />)}
 			</div>
 		</section>
 	)

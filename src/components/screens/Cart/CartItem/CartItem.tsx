@@ -17,7 +17,7 @@ const CartItem: FC<{ item: ICatalogItem }> = ({ item }) => {
 			<div className={styles.item__price}>{item.price} Р</div>
 			<Button
 				className={styles.item__button}
-				onClick={() => removeToCart({ item })}
+				onClick={() => removeToCart({ id: item.id })}
 			>
 				Убрать
 				<DeleteSvg />

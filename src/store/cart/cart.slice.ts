@@ -20,19 +20,13 @@ const cart = createSlice({
 				localStorage.setItem('cart', JSON.stringify(state.items))
 			}
 		},
-		removeToCart: (
-			state,
-			{ payload }: PayloadAction<{ item: ICatalogItem }>
-		) => {
-			state.items = state.items.filter(item => item.id !== payload.item.id)
+		removeToCart: (state, { payload }: PayloadAction<{ id: string }>) => {
+			state.items = state.items.filter(item => item.id !== payload.id)
 			localStorage.setItem('cart', JSON.stringify(state.items))
 		},
 
 		calculateTotalPrice: state => {
-			state.totalPrice = state.items.reduce((acc, item) => {
-				acc += item.price
-				return acc
-			}, 0)
+			state.totalPrice = state.items.reduce((acc, { price }) => acc + price, 0)
 		},
 	},
 })

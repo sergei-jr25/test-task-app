@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import styles from './CatalogItem.module.scss'
 
 const CatalogItem: FC<{ item: ICatalogItem }> = ({ item }) => {
-	const { addToCart, removeToCart } = useActions()
+	const { addToCart } = useActions()
 	const { items } = useCart()
 	const navigate = useNavigate()
 
