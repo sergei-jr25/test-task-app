@@ -8,7 +8,7 @@ import {
 	CATALOG_ROUTE,
 	ERROR_ROUTE,
 	MAIN_ROUTE,
-} from '../consts/consts'
+} from '../shared/consts/consts'
 
 export const routes: { path: string; element: React.ComponentType<any> }[] = [
 	{ path: MAIN_ROUTE, element: MainPage },
